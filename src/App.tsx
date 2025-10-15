@@ -10,9 +10,22 @@ function App() {
   ]
 
   return (
-    <>
+    <div className="app-container">
       <h1>Rock GNV</h1>
-    </>
+      <div className="card">
+        <h2>Upcoming Events</h2>
+        <ul className="event-list">
+          {schedule.map((item, index) => (
+            <li key={index} className="event-item">
+              <span className="event-date">{item.date}</span>: {item.event}
+            </li>
+          ))}
+        </ul>
+        <p className="read-the-docs">
+          Get ready to rock Gainesville!
+        </p>
+      </div>
+    </div>
   )
 }
 

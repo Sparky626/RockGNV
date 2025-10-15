@@ -1,8 +1,18 @@
+@font-face {
+  font-family: 'DocallismeOnStreet';
+  src: url('../public/fonts/DOCALLISME\ ON\ STREET.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVQYV2NkYGD4z8DAwMgAB//+ADlgBX8AAGxQAJ4E2QAAAABJRU5ErkJggg==') repeat; /* Subtle paper texture */
+  position: relative;
+  overflow: hidden;
 }
 
 .logo {
@@ -10,33 +20,101 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border: 2px dashed #ffcc00;
+  animation: paperCutout 2s infinite alternate;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 15px #ff00ff) hue-rotate(90deg);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes paperCutout {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(5px, -5px); }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(5px, 0) skew(10deg);
+    filter: hue-rotate(90deg) contrast(1.2);
+  }
+  4%, 60% {
+    transform: translate(-5px, 0) skew(-10deg);
+    filter: hue-rotate(-90deg) contrast(1.5);
+  }
+  62% {
+    transform: translate(0, 5px) skew(15deg);
+    filter: hue-rotate(180deg) contrast(1.3);
   }
 }
 
 .card {
   padding: 2em;
+  background: rgba(255, 0, 0, 0.1);
+  border: 3px solid #ffcc00;
+  clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+  animation: glitch 0.5s linear infinite, paperCutout 3s infinite alternate;
+  font-family: 'DocallismeOnStreet', 'Courier New', monospace;
 }
 
 .read-the-docs {
-  color: #888;
+  color: #ffcc00;
+  text-shadow: 3px 3px 6px #ff00ff, -3px -3px 6px #00ffff;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #1a1a1a 25%, #333 25%, #333 50%, #1a1a1a 50%, #1a1a1a 75%, #333 75%, #333);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+button {
+  border-radius: 0;
+  border: 2px dashed #ffcc00;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: 'DocallismeOnStreet', 'Courier New', monospace;
+  background-color: #1a1a1a;
+  color: #ff00ff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 0.3s ease;
+  animation: glitch 0.7s infinite;
+}
+button:hover {
+  border-color: #00ffff;
+  background-color: #ff00ff;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    animation: glitch 0.5s linear infinite, paperCutout 3s infinite alternate;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #ffcc00;
+    background-color: #1a1a1a;
+  }
+  a:hover {
+    color: #00ffff;
+  }
+  button {
+    background-color: #333;
+  }
+  body::before {
+    background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #333 25%, #1a1a1a 25%, #1a1a1a 50%, #333 50%, #333 75%, #1a1a1a 75%, #1a1a1a);
+  }
 }

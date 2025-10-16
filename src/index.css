@@ -1,85 +1,104 @@
 @font-face {
   font-family: 'DocallismeOnStreet';
-  src: url('../public/fonts/DOCALLISME\ ON\ STREET.ttf') format('truetype');
+  src: url('../src/assets/fonts/VeryVeryPunkFont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 :root {
-  font-family: 'DocallismeOnStreet', 'Courier New', monospace;
-  line-height: 1.5;
-  font-weight: 700;
+  font-family: 'DocallismeOnStreet', Impact, 'Arial Black', sans-serif;
+  line-height: 1.4;
+  font-weight: 900;
 
-  color-scheme: light;
-  color: #333;
-  background-color: #fff;
+  color-scheme: dark;
+  color: #fff;
+  background-color: #000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
-  font-weight: 700;
-  color: #0066cc;
+  font-weight: 900;
+  color: #00ffff;
   text-decoration: none;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 0 #000;
+  -webkit-text-stroke: 1px #000;
+  transition: all 0.3s ease;
 }
+
 a:hover {
-  color: #cc00cc;
+  color: #ff0080;
+  transform: scale(1.05);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVQYV2NkYGD4z8DAwMgAB//+ADlgBX8AAGxQAJ4E2QAAAABJRU5ErkJggg==') repeat;
-  overflow: hidden;
+  background: #000;
+  overflow-x: hidden;
+  position: relative;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  animation: glitch 0.6s infinite, paperCutout 2s infinite alternate;
+  font-size: clamp(4rem, 15vw, 10rem);
+  line-height: 0.9;
+  font-family: Impact, 'Arial Black', sans-serif;
+  font-weight: 900;
 }
 
 button {
   border-radius: 0;
-  border: 2px dashed #333;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 700;
-  font-family: 'DocallismeOnStreet', 'Courier New', monospace;
-  background-color: #fff;
-  color: #cc00cc;
+  border: 4px solid #000;
+  padding: 1em 2em;
+  font-size: 1.2em;
+  font-weight: 900;
+  font-family: Impact, 'Arial Black', sans-serif;
+  background-color: #ffff00;
+  color: #000;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  cursor: pointer;
   transition: all 0.3s ease;
-  animation: glitch 0.7s infinite;
-}
-button:hover {
-  border-color: #0066cc;
-  background-color: #cc00cc;
-  color: #fff;
-  transform: translateY(-3px);
+  position: relative;
+  box-shadow: 4px 4px 0 #ff0080;
 }
 
-@media (prefers-color-scheme: light) {
+button::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: #00ffff;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+button:hover {
+  background-color: #ff0080;
+  color: #fff;
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 #ffff00;
+}
+
+button:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 #ff0080;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #333;
-    background-color: #fff;
-  }
-  a:hover {
-    color: #cc00cc;
-  }
-  button {
-    background-color: #fff;
+    color: #fff;
+    background-color: #000;
   }
 }

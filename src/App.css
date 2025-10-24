@@ -36,6 +36,17 @@ h1 {
   transform: translate(-0.025em, -0.0125em);
   -webkit-text-stroke: 2px #000;
 }
+
+/* Ensure the document root allows vertical scrolling and smooth touch behavior */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
 h2 {
   font-size: clamp(1rem, 12vw, 8rem);
   font-family: 'VeryPunkFont', Impact, 'Arial Black', sans-serif;
@@ -47,6 +58,7 @@ h2 {
   transform: translate(-0.025em, -0.0125em);
   -webkit-text-stroke: 2px #000;
 }
+
 h3 {
   font-size: 80px;
   font-family: 'HitMePunk', Impact, 'Arial Black', sans-serif;
@@ -56,6 +68,7 @@ h3 {
   transform: translate(-0.025em, -0.0125em);
   -webkit-text-stroke: 2px #000;
 }
+
 .card {
   padding: 3em;
   background: #fff;
@@ -71,6 +84,8 @@ h3 {
   position: relative;
   margin: 0 auto;
   margin-top: 50px;
+  touch-action: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Make app content sit above decorative fixed overlays and allow pointer/scroll events */

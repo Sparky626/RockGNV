@@ -1,33 +1,43 @@
 import './App.css'
+import { NavLink, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Shows from './pages/Shows'
+import News from './pages/News'
+import Community from './pages/Community'
 
 function App() {
-  const schedule = [
-    { date: 'Oct 15, 2025', event: 'GNOTH GNITE - @ - ThE cLubhousE' },
-    { date: 'Oct 20, 2025', event: 'OPEN MIc niGHT' },
-    { date: 'Oct 25, 2025', event: 'BATTLE OF THE BANDS' },
-  ]
-
   return (
-    <div className="app-container">
-      <div>
-        <h1>rOck</h1>
-        <h2>Gnv</h2>
-      </div>
-      
-      <div className="card">
-        <h3>UPCOMING SHOWS</h3>
-        <ul className="event-list">
-          {schedule.map((item, index) => (
-            <li key={index} className="event-item">
-              <span className="event-date">{item.date}</span>
-              <span className="event-name">{item.event}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="read-the-docs">
-          NO RULES. NO LIMITS. JUST ROCK!
-        </p>
-      </div>
+    <div>
+      <header style={{ padding: '1rem', textAlign: 'center' }}>
+        <div>
+          <h1 style={{ marginBottom: '-15px' }}>rOck</h1>
+          <h2 style={{ marginTop: '-75px' }}>Gnv</h2>
+        </div>
+        <nav className="nav-bar" aria-label="Main navigation">
+          <NavLink to="/" end className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+            Home
+          </NavLink>
+          <NavLink to="/shows" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+            Shows
+          </NavLink>
+          <NavLink to="/news" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+            News
+          </NavLink>
+          <NavLink to="/community" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+            Community
+          </NavLink>
+        </nav>
+      </header>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shows" element={<Shows />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
     </div>
   )
 }

@@ -1,11 +1,30 @@
 @font-face {
-  font-family: 'DocallismeOnStreet';
-  src: url('../src/assets/fonts/VeryVeryPunkFont.ttf') format('truetype');
+  font-family: 'HitMePunk';
+  /* Correct relative path from files in src/ to assets/fonts/ */
+  src: url('./assets/fonts/Hit\ me\,\ punk!\ 01.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'VeryPunkFont';
+  /* Correct relative path from files in src/ to assets/fonts/ */
+  src: url('./assets/fonts/VeryVeryPunkFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DocallismeOnStreet';
+  /* Correct relative path from files in src/ to assets/fonts/ */
+  src: url('./assets/fonts/DOCALLISME\ ON\ STREET.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
+  /* global font stack; app uses the custom font when available */
   font-family: 'DocallismeOnStreet', Impact, 'Arial Black', sans-serif;
   line-height: 1.4;
   font-weight: 900;
@@ -51,12 +70,7 @@ body {
   position: relative;
 }
 
-h1 {
-  font-size: clamp(4rem, 15vw, 10rem);
-  line-height: 0.9;
-  font-family: Impact, 'Arial Black', sans-serif;
-  font-weight: 900;
-}
+/* Global headings are styled inside App.css to keep component styles together */
 
 button {
   border-radius: 0;

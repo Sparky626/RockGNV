@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import './App.css'
 
 function App() {
   const schedule = [
-    { date: 'Oct 15, 2025', event: 'Rock jaM SESSION' },
+    { date: 'Oct 15, 2025', event: 'GNOTH GNITE - @ - ThE cLubhousE' },
     { date: 'Oct 20, 2025', event: 'OPEN MIc niGHT' },
     { date: 'Oct 25, 2025', event: 'BATTLE OF THE BANDS' },
   ]
@@ -16,7 +15,7 @@ function App() {
       </div>
       
       <div className="card">
-        <h2>UPCOMING SHOWS</h2>
+        <h3>UPCOMING SHOWS</h3>
         <ul className="event-list">
           {schedule.map((item, index) => (
             <li key={index} className="event-item">

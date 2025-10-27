@@ -5,7 +5,6 @@ type Post = { id: number; author: string; text: string }
 
 export default function Community() {
   const [posts, setPosts] = useState<Post[]>([
-    { id: 1, author: 'Axel', text: 'Looking for a drummer for weekend gigs.' },
   ])
   const [text, setText] = useState('')
 

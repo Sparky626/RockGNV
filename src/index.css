@@ -7,6 +7,14 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'HitMePunk2';
+  /* Correct relative path from files in src/ to assets/fonts/ */
+  src: url('./assets/fonts/Hit\ me\,\ punk!\ 05.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: 'VeryPunkFont';
   /* Correct relative path from files in src/ to assets/fonts/ */
   src: url('./assets/fonts/VeryVeryPunkFont.ttf') format('truetype');

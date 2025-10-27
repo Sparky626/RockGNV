@@ -1,9 +1,9 @@
 export default function Shows() {
   const schedule = [
-    { date: 'Oct 15, 2025', event: 'GNOTH GNITE - @ - ThE cLubhousE' },
-    { date: 'Oct 20, 2025', event: 'OPEN MIc niGHT' },
-    { date: 'Oct 25, 2025', event: 'BATTLE OF THE BANDS' },
-  ]
+    { date: "Oct 15, 2025", event: "GNOTH GNITE - @ - ThE cLubhousE" },
+    { date: "Oct 20, 2025", event: "OPEN MIc niGHT" },
+    { date: "Oct 25, 2025", event: "BATTLE OF THE BANDS" },
+  ];
 
   return (
     <div className="app-container">
@@ -19,5 +19,5 @@ export default function Shows() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
